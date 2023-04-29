@@ -1,9 +1,34 @@
-// function component() {
-// 	const element = document.createElement('div');
+import Home from './home';
+import Menu from './menu';
+import ContactUs from './contact-us';
+import Tab from './tabs';
 
-// 	element.innerHTML = "Hello Webpack"
+const root = document.getElementById("content");
 
-// 	return element;
-// }
+const homeTab = Tab("Home");
+const menuTab = Tab("Menu")
+const contactTab = Tab("Contact Us");
 
-// document.body.appendChild(component());
+function constructPage() {
+  root.innerHTML = "";
+  root.appendChild(homeTab);
+  root.appendChild(menuTab);
+  root.appendChild(contactTab);
+}
+
+homeTab.addEventListener('click', (event) => {
+  constructPage();
+  root.appendChild(Home);
+})
+
+menuTab.addEventListener('click', (event) => {
+  constructPage();
+  root.appendChild(Menu);
+})
+
+contactTab.addEventListener('click', (event) => {
+  constructPage();
+  root.appendChild(ContactUs);
+})
+
+constructPage();
